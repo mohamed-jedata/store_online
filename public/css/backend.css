@@ -1,0 +1,214 @@
+h1{
+    padding-top: 50px;
+    padding-bottom: 60px;
+    text-align: center;
+    font-weight: bolder;
+    color: #2d3436;
+}
+
+.users table,.comments table{
+    border: 1px solid #e9ecef;
+}
+.users table td,.comments table td{
+    border: 1px solid #e9ecef;
+}
+.users table img{
+    width: 50px;
+    height: 50px;
+    padding: 1px;
+    /* border-radius: 20px; */
+}
+.col-avatar{
+    padding: 0 !important;
+    text-align:center
+}
+.btn_mine{
+    background-color: #636e72;
+    color : white;
+    padding: 2px 7px 5px 7px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.btn_mine:hover{
+    background-color: #636e72d5;
+    text-decoration: none;
+    color: white ;
+   
+}
+.add-user button{
+    margin-top: 10px;
+    padding: 1px 5px 2px 5px;
+}
+
+
+/***    Categories     **/
+
+.categories,.comments,.dashboard,.products{
+    margin-bottom: 20px;
+}
+.categories .card
+{
+    margin-bottom: 20px;
+}
+.categories hr{
+    margin : 0;
+}
+.categories .card-body{
+    padding:0;
+    
+}
+.categories .card-text{
+    margin-top: 8px;
+    padding-top: 0;
+    padding-right: 10px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    text-indent: 10px;
+    
+}
+.categories h5{
+    font-weight: bold;
+    cursor: pointer;
+    padding: 15px;
+    margin-bottom: 0;
+}
+.categories h5:hover{
+    background-color: #dff9fb;
+}
+.show-edit .btn{
+    display: none;
+    padding: 0px 4px 0px 2px;
+    font-size: 15px;
+}
+
+
+/***   End Catgeories   **/
+
+
+/**Start Comments**/
+
+.comments .btn,
+.users .btn,
+.categories .card-title .btn{
+    padding: 0px 4px 0px 2px;
+    font-size: 15px;
+
+}
+
+
+
+
+/**end comments**/
+
+
+
+/** Start Products **/
+.add-pro{
+    margin-bottom: 50px;
+}
+.products .card{
+    margin-bottom: 15px;
+}
+
+.products .media-body{
+    margin : 5px 5px 0px 5px;
+}
+.products .card-body{
+   /* padding: 10px 10px 10px 15px */
+}
+.rate .notChecked{
+    color: #c7c7cd;
+}
+.rate .checked{
+   color: orange;
+}
+.product .price{
+    font-weight: bold;
+}
+.products hr
+{
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+.products .images{
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.products .images img{
+    cursor: pointer;
+}
+
+/** end Products **/
+
+
+
+/****    Start Dashboard       **/
+
+
+.statiques .stat {
+	padding: 20px;
+	font-size: 15px;
+	color: #FFF;
+	border-radius: 10px;
+	position: relative;
+	overflow: hidden;
+    margin-top: 5px;
+}
+
+.statiques .stat .i{
+    position: absolute;
+    font-size: 70px;
+    top: 35px;
+    left: 30px;
+}
+
+.statiques .stat .info {
+	float: right;
+    
+}
+
+.statiques .stat a {
+	color: #FFF;
+   
+}
+
+.statiques .stat a:hover {
+	text-decoration: none;
+}
+
+.statiques .stat span {
+	display: block;
+	font-size: 60px;
+}
+
+.statiques .st-members {
+	background-color: #16a085;
+}
+
+.statiques .st-pending {
+	background-color: #8e44ad;
+}
+
+.statiques .st-products {
+	background-color: #2c3e50;
+}
+
+.statiques .st-comments {
+	background-color: #e74c3c;
+}
+
+.cards{
+    margin-top: 20px;
+}
+.cards .card{
+    margin-top: 20px;
+}
+.cards .card-header{
+
+    padding-top: 8px;
+    padding-bottom: 8px;
+
+}
+
+/****    end Dashboard           **/
