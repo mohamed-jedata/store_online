@@ -131,9 +131,11 @@ return [
     */
 
     'custom' => [
+        //Start Users 
         'email' => [
             'required' => 'Email is required ',
-            'email' => 'Email address is invalid'
+            'email' => 'Email address is invalid',
+            'unique' => 'Email has already been taken.'
         ],
         'first_name' => [
             'required' => 'First Name is required ',
@@ -151,6 +153,8 @@ return [
         'avatar' =>[
             'mimes' => 'Image must be a file of type : :values.',
         ],
+        //end User
+        //start Categoy and Product
         'name' =>[
             'required' => 'Name is required ',
             'max' => 'Name must not be greater than :max characters.',
@@ -160,7 +164,43 @@ return [
             'required' => 'Description is required ',
             'min' => 'Description must be at least :min characters.'
         ],
-
+            //end category
+        'price' =>[
+            'required' => 'Price is required ',
+            'min' => 'Price must be greater than :min',
+            'numeric' => 'Price is invalid',
+        ],
+        'stock' =>[
+            'required' => 'Stock is required ',
+            'min' => 'Stock must be greater than :min',
+            'numeric' => 'Stock is invalid',
+        ],
+        'country' =>[
+            'required' => 'Product Country is required'
+        ],
+        'cat_id' =>[
+            'required' => 'You must select product category',
+            'numeric' => 'Selected category is invalid',
+        ],
+        'main_image' =>[
+            'required' => 'Product Image is required',
+            'image' => 'Product Image must be an image ',
+            'mimes' => 'Image must be a file of type : :values.',
+        ],
+        'images' =>[
+            'mimes' => 'Image must be a file of type : :values.',
+        ],
+        'tags' =>[
+            'required' => 'Tags are required',
+            'min' => 'Tags must be at least :min characters.',
+        ],
+        'visible' =>[
+            'boolean' => 'Visible option must be true or false.',
+        ],
+        'allow_comments' =>[
+            'boolean' => 'Allow Comments option must be true or false.',
+        ],
+        //end Product
     ],
 
     /*

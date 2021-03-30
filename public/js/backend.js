@@ -30,7 +30,8 @@ $(document).ready(function () {
 
     $(".images img").click(function(){
         var src = $(this).attr("src");
-        $(".pro-img").attr("src",src);
+        $(this).parent().parent().prev(".pro-img").attr("src",src);
+        // $(".pro-img").attr("src",src);
     });
 
 });

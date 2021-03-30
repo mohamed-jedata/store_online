@@ -30,21 +30,21 @@
 @csrf
   <div class="form-group row justify-content-md-center">
     <label for="fname" class="col-sm-2 col-form-label">Name</label>
-    <div class="col-sm-4">
+    <div class="col-sm-6">
       <input type="text" name="name" class="form-control" id="fname">
     </div>
   </div>
 
   <div class="form-group row justify-content-md-center">
     <label for="lname" class="col-sm-2 col-form-label">Description</label>
-    <div class="col-sm-4">
-      <textarea type="text" name="description" rows="4" class="form-control" id="lname"></textarea>
+    <div class="col-sm-6">
+      <textarea type="text" name="description" rows="5" class="form-control" id="lname"></textarea>
     </div>
   </div>
 
 
   <div class="form-group row justify-content-md-center">
-    <div class="col-sm-2">
+    <div class="col-sm-4">
       <button type="submit" class="btn btn-primary pt-0 pb-0"><i class="fas fa-plus"></i> {{$title}}</button>
     </div>
   </div>

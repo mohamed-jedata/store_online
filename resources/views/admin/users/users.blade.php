@@ -36,12 +36,12 @@
     <tr>
       <td class="col-avatar"> 
           @if(!empty(trim($user->avatar)))
-            <img src="{{asset($user->avatar)}}">
+            <img src="{{asset('storage/uploads/avatars/'.$user->avatar)}}">
          @else
             <img src="{{asset('img/profile.png')}}">
          @endif
       </td>
-      <td>{{$user->first_name ." ". $user->last_name}}</td>
+      <td>{{$user->full_name}}</td>
       <td>{{$user->email}}</td>
       <td>{{$user->phone}}</td>
       <td>

@@ -5,6 +5,11 @@ h1{
     font-weight: bolder;
     color: #2d3436;
 }
+input[type=file]{
+    border : 1px solid #a9acaf;
+}
+
+
 
 .users table,.comments table{
     border: 1px solid #e9ecef;
@@ -138,6 +143,7 @@ h1{
 .products .images img{
     cursor: pointer;
 }
+
 
 /** end Products **/
 

@@ -50,7 +50,6 @@ class CategorieController extends Controller
             ]);
 
             return redirect()->route('categories.index')->with('success','Category Added Succefully !!');
-  
 
         }
 

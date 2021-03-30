@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File ;
 use Illuminate\Support\Facades\Hash;
 use PHPUnit\Framework\Constraint\FileExists;
@@ -17,9 +18,18 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    static  $AVATAR_PATH = 'public/uploads/avatars/';
+
     public function index()
     {
-        $users = User::paginate(10);
+        $users = User::select(
+            "id",
+            DB::raw("CONCAT(first_name,' ',last_name) as full_name"),
+            "email",
+            "phone",
+            "avatar")
+            ->paginate(10);
         return view("admin.users.users",['users'=>$users]);
     }
 
@@ -53,7 +63,7 @@ class UserController extends Controller
         $validated = $request->validate([
             'first_name' => 'required|string|min:3|max:50',
             'last_name' => 'required|string|min:3|max:50',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users',
             'password' => 'required|min:3|max:50',
             'is_admin' => 'required|boolean',
         ]);
@@ -66,9 +76,8 @@ class UserController extends Controller
                     'avatar' => 'mimes:jpeg,gif,jpg,png|max:5120'
                 ]);
                 $extension = $request->avatar->extension();
-                $avatarName = date('mdYHis') . uniqid().'.'.$extension;
-                $request->file('avatar')->storeAs('public/uploads/avatars',$avatarName);
-                $avatar = 'storage/uploads/avatars/'.$avatarName;   
+                $avatar = date('mdYHis') . uniqid().'.'.$extension;
+                $request->file('avatar')->storeAs($this::$AVATAR_PATH,$avatar);
             }
         }
 
@@ -150,10 +159,8 @@ class UserController extends Controller
                     'avatar' => 'mimes:jpeg,gif,jpg,png|max:5120'
                 ]);
                 $extension = $request->avatar->extension();
-                $avatarName = date('mdYHis') . uniqid().'.'.$extension;
-                $request->file('avatar')->storeAs('public/uploads/avatars',$avatarName);
-                $avatar = 'storage/uploads/avatars/'.$avatarName;  
-
+                $avatar = date('mdYHis') . uniqid().'.'.$extension;
+                $request->file('avatar')->storeAs($this::$AVATAR_PATH,$avatar);
             
                 $this->deleteAvatar($user->avatar);
 
@@ -198,11 +205,7 @@ class UserController extends Controller
     private function deleteAvatar($avatar){
 
         if(!empty(trim($avatar))){
-
-            $removeFile = explode("/",$avatar);
-            unset($removeFile[0]);
-            $removeFile = join("/",$removeFile);
-            Storage::disk('public')->delete($removeFile);
+            Storage::delete($this::$AVATAR_PATH . $avatar);
         }
     }
 
