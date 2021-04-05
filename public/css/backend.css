@@ -83,7 +83,7 @@ input[type=file]{
 .show-edit .btn{
     display: none;
     padding: 0px 4px 0px 2px;
-    font-size: 15px;
+    margin-left: 4px;
 }
 
 
@@ -97,7 +97,7 @@ input[type=file]{
 .categories .card-title .btn{
     padding: 0px 4px 0px 2px;
     font-size: 15px;
-
+    
 }
 
 
@@ -132,18 +132,27 @@ input[type=file]{
 }
 .products hr
 {
+
     margin-top: 2px;
     margin-bottom: 2px;
 }
 .products .images{
     margin-top: 8px;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 }
 
 .products .images img{
     cursor: pointer;
+    margin-bottom: 2px;
 }
-
+.products .notifications{
+    /* padding-top: 5px; */
+    /* padding-bottom: 7px; */
+}
+.products .pro-img{
+    width: 220px;
+    height:175px;
+}
 
 /** end Products **/
 
@@ -211,7 +220,6 @@ input[type=file]{
     margin-top: 20px;
 }
 .cards .card-header{
-
     padding-top: 8px;
     padding-bottom: 8px;
 

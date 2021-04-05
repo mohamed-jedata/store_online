@@ -28,7 +28,8 @@ class UserController extends Controller
             DB::raw("CONCAT(first_name,' ',last_name) as full_name"),
             "email",
             "phone",
-            "avatar")
+            "avatar",
+            "is_admin")
             ->paginate(10);
         return view("admin.users.users",['users'=>$users]);
     }

@@ -182,6 +182,10 @@ return [
             'required' => 'You must select product category',
             'numeric' => 'Selected category is invalid',
         ],
+        'user_id' =>[
+            'required' => 'You must select product user',
+            'numeric' => 'Selected User is invalid',
+        ],
         'main_image' =>[
             'required' => 'Product Image is required',
             'image' => 'Product Image must be an image ',

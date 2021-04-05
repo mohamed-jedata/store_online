@@ -42,7 +42,7 @@
                     <div class="info">
                         Pending Products
                         <span>
-                            <a href="{{route('products.index')}}">880</a>
+                            <a href="{{route('products.index')}}?disapproved">880</a>
                         </span>
                     </div>
                 </div>

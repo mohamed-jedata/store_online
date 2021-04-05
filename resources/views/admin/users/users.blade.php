@@ -27,6 +27,7 @@
       <th scope="col">Full Name</th>
       <th scope="col">Email</th>
       <th scope="col">Phone</th>
+      <th scope="col">Status</th>
       <th scope="col">Actions</th>
     </tr>
   </thead>
@@ -44,6 +45,13 @@
       <td>{{$user->full_name}}</td>
       <td>{{$user->email}}</td>
       <td>{{$user->phone}}</td>
+      <td>
+          @if($user->is_admin)
+              <b>Admin</b>
+          @else
+             Member
+          @endif
+      </td>
       <td>
           <a class="btn btn-success" href="{{route('users.edit',$user->id)}}">
           <i class="fas fa-pen"></i> Edit

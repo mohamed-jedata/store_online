@@ -59,6 +59,20 @@
     </div>
   </div>
 
+
+  <div class="form-group row justify-content-md-center">
+    <label for="user_id" class="col-sm-2 col-form-label">User</label>
+    <div class="col-sm-6">
+      <select name="user_id" class="form-control" id="user_id">
+      <option value="">-- Select User --</option>
+      @foreach($users as $user)
+        <option value="{{$user->id}}">{{$user->full_name}}</option>
+      @endforeach
+      </select>
+    </div>
+  </div>
+
+
   <div class="form-group row justify-content-md-center">
     <label for="cat_id" class="col-sm-2 col-form-label">Categroy</label>
     <div class="col-sm-6">
@@ -97,11 +111,11 @@
     <label for="visible" class="col-sm-2 col-form-label">Visible</label>
     <div class="col-sm-6">
         <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="visible" id="falseV" value="0" checked>
+        <input class="form-check-input" type="radio" name="visible" id="falseV" value="0" >
         <label class="form-check-label" for="falseV">False</label>
         </div>
         <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="visible" id="trueV" value="1">
+        <input class="form-check-input" type="radio" name="visible" id="trueV" value="1" checked>
         <label class="form-check-label" for="trueV">True</label>
         </div>
     </div>
@@ -112,11 +126,11 @@
     <div class="col-sm-6">
     
         <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="allow_comments" id="falseAC" value="0" checked>
+        <input class="form-check-input" type="radio" name="allow_comments" id="falseAC" value="0">
         <label class="form-check-label" for="falseAC">False</label>
         </div>
         <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="allow_comments" id="trueAC" value="1">
+        <input class="form-check-input" type="radio" name="allow_comments" id="trueAC" value="1" checked>
         <label class="form-check-label" for="trueAC">True</label>
         </div>
     </div>
