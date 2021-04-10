@@ -14,4 +14,25 @@ class Product extends Model
                             'images','tags','visible','allow_comments','stock','active',
                             'user_id','cat_id'];
 
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function categorie()
+    {
+        return $this->belongsTo(Categorie::class);
+    }
+
+    public function rates()
+    {
+        return $this->hasMany(Rate::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
 }

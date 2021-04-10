@@ -205,6 +205,11 @@ return [
             'boolean' => 'Allow Comments option must be true or false.',
         ],
         //end Product
+        //start comments
+        'comment' =>[
+            'required' => 'Comment is required',
+        ],
+        //end comment
     ],
 
     /*

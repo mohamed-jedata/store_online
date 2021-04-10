@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -22,9 +23,7 @@ Route::get('/', function () {
 });
 
 
-Route::get('/admin/dashboard', function () {
-    return view("admin.dashboard");
-})->name("admin.dashboard");
+Route::get('/admin/dashboard',[DashboardController::class,'index'])->name("admin.dashboard");
 
 Route::resource('admin/users',UserController::class)->except(['show']);
 Route::resource('admin/categories',CategorieController::class)->except(['show']);

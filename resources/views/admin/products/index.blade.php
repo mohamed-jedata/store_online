@@ -4,6 +4,8 @@
  $title = "Products";
 @endphp
 
+@include('admin/includes/util')
+
 @section('title',$title)
 
 @section('content')
@@ -42,7 +44,7 @@
                             <i class="fas fa-pen"></i> Edit
                         </a>
                     </h5>
-                    <h5 class="price">{{$product->price}} $ </h4>
+                    <h5 class="price">{{$product->price}} {{ Util::CURRENCY }} </h4>
                     <div class="rate">
                         @php $rate = 3 @endphp
                         @if($rate >=0 && $rate <= 5)

@@ -34,4 +34,12 @@ $(document).ready(function () {
         // $(".pro-img").attr("src",src);
     });
 
+    $(".dashboard .last_products ul li").click(function (e) { 
+        
+        var url = $(this).find("a").attr("href");
+        window.location.href = url;
+        // alert(url);
+        
+    });
+
 });

@@ -9,6 +9,7 @@ use Illuminate\Cache\TagSet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Util;
 
 class ProductController extends Controller
 {
@@ -35,7 +36,7 @@ class ProductController extends Controller
 
            $products = "";
            if(request()->has("disapproved")){
-                $products = Product::where('active',0)->paginate(10);
+                $products = Product::where('active',0)->paginate(Util::PAGINATION);
            }else{
                 $products = Product::paginate(10);
            }

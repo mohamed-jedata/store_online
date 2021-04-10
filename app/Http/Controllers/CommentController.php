@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use Illuminate\Http\Request;
+
 
 class CommentController extends Controller
 {
@@ -13,22 +15,14 @@ class CommentController extends Controller
          */
         public function index()
         {
-            return view("admin.comments.index");
+            $comments = Comment::paginate(10);
+            return view("admin.comments.index",
+            [
+                'comments'  =>  $comments
+            ]);
         }
 
-        /**
-         * Show the form for creating a new resource.
-         *
-         * @return \Illuminate\Http\Response
-         */
-        public function create()
-        {
-            return view("admin.comments.index");
-        }
-
-
-
-
+    
         /**
          * Show the form for editing the specified resource.
          *
@@ -37,7 +31,8 @@ class CommentController extends Controller
          */
         public function edit($id)
         {
-            return view("admin.comments.edit");
+            $comment = Comment::find($id);
+            return view("admin.comments.edit")->with('comment',$comment);
         }
 
         /**
@@ -49,7 +44,18 @@ class CommentController extends Controller
          */
         public function update(Request $request, $id)
         {
-            //
+            $comment = $request->comment ;
+
+            $validated = $request->validate([
+                'comment' => 'required',
+            ]);
+
+            $com = Comment::find($id);
+            $com->comment = $comment;
+            $com->save();
+
+            return redirect()->route('comments.index')->with('success','Comment Updated Succefully !!');
+        
         }
 
         /**
@@ -60,6 +66,9 @@ class CommentController extends Controller
          */
         public function destroy($id)
         {
-            //
+            Comment::destroy($id);
+
+            return redirect()->route('comments.index')->with('success','Comment Removed Succefully !!');
+
         }
 }
