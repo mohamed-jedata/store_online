@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Categorie;
 use App\Models\Product;
 use App\Models\User;
+use App\Util\Util ;
 use Illuminate\Cache\TagSet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
-use Util;
+
 
 class ProductController extends Controller
 {
@@ -38,7 +39,7 @@ class ProductController extends Controller
            if(request()->has("disapproved")){
                 $products = Product::where('active',0)->paginate(Util::PAGINATION);
            }else{
-                $products = Product::paginate(10);
+                $products = Product::paginate(Util::PAGINATION);
            }
   
             return view("admin.products.index",['products'=>$products]);

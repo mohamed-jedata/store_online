@@ -2,9 +2,12 @@
 
 @php
  $title = "Products";
+
+ use App\Util\Util
+
 @endphp
 
-@include('admin/includes/util')
+
 
 @section('title',$title)
 

@@ -6,7 +6,9 @@
 
 @section('title',$title)
 
-@include('admin/includes/util')
+@php
+use App\Util\Util
+@endphp
 
 @section('content')
 
@@ -15,7 +17,7 @@
     <h1>{{$title}}</h1>
 
     <div class="row statiques">
-            <div class="col-md-6 col-lg-3">
+            <div class="col-md-6  col-lg-3">
                 <div class="stat st-members">
                     <i class="fa fa-users i"></i>
                     <div class="info">

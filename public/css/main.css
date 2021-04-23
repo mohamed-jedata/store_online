@@ -1,0 +1,262 @@
+/**************   Start General   ******************/
+body{
+    font-size:16px;
+}
+.spacingButtomTop{
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+input[type=file]{
+    border : 1px solid #a9acaf;
+}
+
+.empty{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color:#16283b;
+}
+
+
+/**************  End General      ******************/
+
+/**************   Start  Category  ***************/
+
+
+.category{
+    /* border-radius: 0;*/
+    margin-bottom: 40px; 
+    margin-top: 60px; 
+}
+
+.rate .notChecked{
+    color: #c7c7cd;
+}
+.rate .checked{
+   color: orange;
+}
+
+.category .product .card-body{
+    padding: 10px 5px 12px 10px;
+    border: 1px solid #f0e0e0;
+}
+
+.category .product{
+    border-radius: 0;
+    margin-bottom: 12px;
+}
+
+.category .product .views{
+    font-size: 20px;
+    color: #93767f;
+}
+.category .product .price{
+    font-weight: bold;
+}
+
+.category .product .image{
+    height: 170px;
+    border: 0;
+    border-radius: 0;
+}
+
+/**************   End  Category  ***************/
+
+
+
+
+/*************    Start Product  **************/
+
+.product-info .product{
+    border: 1px solid rgb(251, 230, 230);
+    padding: 0px;
+    position: relative;
+}
+
+.product-info .image{
+    width: 100%;
+    /* height: 100%; */
+    height: 267px;
+}
+
+.product-info  .details{
+    margin-left: 12px;
+}
+
+.product-info .details .title{
+   font-size:1.8em;
+   margin-top: 10px;
+}
+.product-info .details .price{
+    font-size:1.5em;
+    font-weight: bold;
+ }
+ .product-info .product .images{
+    margin-top: 8px;
+}
+ .product-info .details .add-cart{
+    margin-bottom: 0px;
+    margin-top: 15px;
+ }
+ .product-info .details .tags a{
+     text-decoration: none;
+ }
+ .product-info .details .tags a::after{
+    content: ' | ';
+    color: black;
+ }
+ .product-info .details .tags a:last-child::after{
+    content: '';
+ }
+ .product-info .details ul{
+    list-style: none;
+    padding-left: 0;
+ }
+
+ .product-info .details li{
+    margin-bottom: 6px;
+ }
+
+ .product-info .details hr{
+    margin-bottom: 0;
+    margin-top: 0;
+ }
+ .product-info .details .views{
+    font-size: 1.2em;
+    color: #93767f;
+    display: inline;
+}
+.product-info .description,.product-info .comments{
+    margin-top: 30px;
+
+}
+
+.product-info .description .card-body,.product-info .comments .card-body{
+    padding: 12px;   
+}
+
+.product-info .description .card-header,.product-info .comments .card-header{
+    padding: 8px 10px;   
+}
+.product-info .comments .comment {
+    background-color: rgba(189, 171, 171, 0.08);
+    /* padding-top: 5px; */
+}
+.product-info .comments .comment img{
+    height:50px;
+    width:60px;
+}
+.product-info .comments .comment p{
+    
+}
+.product-info .comments .comment .username{
+    font-weight: bold;
+}
+
+.product-info .comments hr{
+    margin-top: 0;
+}
+
+/************     End Product   *************/
+
+
+/************  Start Add product     ****************/
+.add-product h1{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.add-product h1{
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+}
+
+/************  End Add product     ****************/
+
+
+
+/************  Start profile     ****************/
+.profile{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.profile .card-body{
+    padding: 12px;   
+}
+
+.profile .card-header{
+    padding: 8px 10px;   
+}
+.inform , .prod ,.commandes ,  .comments{
+    margin-top: 10px;
+}
+.inform ul,.comments ul{
+    list-style: none;
+    padding-left: 1em;
+}
+.inform ul li,.comments ul li{
+   font-size: 1.02em;
+   
+}
+.inform ul li span{
+    display: inline-block;
+    width: 108px;
+    color: #195386;
+ }
+
+ .prod .product{
+     margin-bottom: 10px;
+ }
+ .prod .wait-approv{
+    background-color: #ff00006b;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 2px;
+    color: white;
+ }
+.prod .edit{
+    position: absolute;
+    right: 0px;
+    padding: 1px;
+    font-size: 17px;
+    background-color: #28a745d6;
+}
+ .comments ul li{
+    background: aqua;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-bottom: 5px;
+    position: relative;
+    color: black;
+ }
+ .comments ul li{
+    background: aqua;
+    padding: 5px;
+    margin-bottom: 5px;
+    position: relative;
+    color: black;
+ }
+ .comments ul li .date{
+    font-size: 13px;
+    font-style: italic;
+    position: absolute;
+    bottom: 0;
+    right: 6px;
+    color: #a27373;
+ }
+ .comments ul li::before{
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: -30px;
+    border-width: 15px;
+    border-color: transparent #10caca transparent transparent;
+    border-style: solid;
+    top: 1px;
+ }
+
+/************  End profile     ****************/

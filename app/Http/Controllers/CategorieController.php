@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categorie;
+use App\Util\Util ;
 use Illuminate\Http\Request;
-use Util;
 
 class CategorieController extends Controller
 {
@@ -15,7 +15,7 @@ class CategorieController extends Controller
          */
         public function index()
         {
-            $categories = Categorie::paginate(10);
+            $categories = Categorie::paginate(Util::PAGINATION);
             return view("admin.categories.index",['categories' => $categories]);
         }
 

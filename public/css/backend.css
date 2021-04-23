@@ -1,3 +1,5 @@
+/* General */
+
 h1{
     padding-top: 50px;
     padding-bottom: 60px;
@@ -8,6 +10,8 @@ h1{
 input[type=file]{
     border : 1px solid #a9acaf;
 }
+
+/* End General */
 
 
 
@@ -101,8 +105,6 @@ input[type=file]{
 }
 
 
-
-
 /**end comments**/
 
 
@@ -118,9 +120,8 @@ input[type=file]{
 .products .media-body{
     margin : 5px 5px 0px 5px;
 }
-.products .card-body{
-   /* padding: 10px 10px 10px 15px */
-}
+
+
 .rate .notChecked{
     color: #c7c7cd;
 }
@@ -234,7 +235,7 @@ input[type=file]{
 }
 .dashboard .lastest ul li{
     /* background-color: #2c3e50; */
-    border-left: 2px solid #2c3e50;
+    /* border-left: 2px solid #2c3e50; */
     color:#16283b;
     /* display: block; */
     margin-top: 5px;
@@ -244,12 +245,12 @@ input[type=file]{
 
 }
 .dashboard .last-users ul li{
-    border-left: 2px solid #24685b;
-    color:#24685b;
+    /* border-left: 2px solid #24685b; */
+    /* color:#24685b; */
 }
 .dashboard .last-comments ul li{
-    border-left: 2px solid #e74c3c ;
-    color:#e74c3c;
+    /* border-left: 2px solid #e74c3c ; */
+    /* color:#e74c3c; */
 }
 
 .dashboard .last-products ul li span .btn{
@@ -270,7 +271,7 @@ input[type=file]{
 }
 
 .dashboard .last-comments ul li label{
-    font-weight: bolder;
+    /* font-weight: bolder; */
 }
 
 .dashboard .empty{

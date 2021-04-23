@@ -6,11 +6,12 @@ use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use App\Models\User;
+use App\Util\Util;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File ;
 use Illuminate\Support\Facades\Hash;
 use PHPUnit\Framework\Constraint\FileExists;
-use Util;
+
 
 class UserController extends Controller
 {
@@ -31,7 +32,7 @@ class UserController extends Controller
             "phone",
             "avatar",
             "is_admin")
-            ->paginate(10);
+            ->orderBy("is_admin",'desc')->paginate(Util::PAGINATION);
         return view("admin.users.users",['users'=>$users]);
     }
 
