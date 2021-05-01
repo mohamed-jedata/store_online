@@ -1,6 +1,7 @@
 /**************   Start General   ******************/
 body{
     font-size:16px;
+    background-color: #f0efed;
 }
 .spacingButtomTop{
     margin-top: 100px;
@@ -17,6 +18,15 @@ input[type=file]{
     color:#16283b;
 }
 
+#quantite{
+    padding: 0px;
+    font-size: 14px;
+    height: 20px;
+    border-radius: 10px;
+    width: 53px;
+    text-align: center;
+    display: inline;
+}
 
 /**************  End General      ******************/
 
@@ -71,6 +81,7 @@ input[type=file]{
     border: 1px solid rgb(251, 230, 230);
     padding: 0px;
     position: relative;
+    background: #fff;
 }
 
 .product-info .image{
@@ -260,3 +271,55 @@ input[type=file]{
  }
 
 /************  End profile     ****************/
+
+
+/************  Start cart products     ****************/
+
+
+.cart-products .pro-img {
+    width: 220px;
+    height: 175px;
+}
+.cart-products .media-body {
+    margin: 5px 5px 0px 5px;
+}
+.cart-products .price {
+    font-weight: bold;
+}
+
+.cart-products hr {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+.cart-products .country{
+    font-size: 17px;
+    margin-bottom: 4px;
+    color: #64605cd6;
+}
+.cart-products .product{
+    border: 1px solid aqua;
+    position: relative;
+    background-color: white;
+}
+.cart-products .remove{
+    position: absolute;
+    right: 8px;
+    bottom: 7px;
+    padding: 0px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 12px;
+    color: red;
+} 
+.cart-products .buy-price span{
+    color: #000000;
+    display: block;
+    margin-bottom: 9px;
+    font-size: 23px;
+}
+.cart-products .buy-now a{
+    padding: 3px 4px 3px 4px;
+    font-size: 20px;
+}
+/************  End cart products     ****************/
+

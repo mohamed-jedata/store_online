@@ -10,5 +10,12 @@ $(document).ready(function () {
          // out
       }
    );
+
+
+   //submit when quantite is changed
+   $("#quantite").change(function (e) { 
+      if($(this).val() != "")
+       $(this).next(".submit").click();
+   });
   
 });

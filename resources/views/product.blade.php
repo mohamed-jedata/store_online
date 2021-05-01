@@ -70,7 +70,13 @@
                                 <li class="price">{{$product->price}} $</li>
                                 <li class="country">Made in {{$product->country}}</li>
                                 <li class="add-cart">
-                                    <button class="btn btn-primary">Add to Cart</button>
+                                    <form action="{{route('cart.create')}}" method="post">
+                                        @csrf
+                                        <input class="d-none" name="product_id" value="{{$product->id }}"> 
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="fas fa-cart-plus"></i> Ajouter au cart
+                                        </button>
+                                    </form>
                                 </li>
                             </ul>
                     </div>
@@ -98,7 +104,7 @@
         <div class="comments">
             <div class="card">
                 <div class="card-header">
-                    Comments
+                    Commentaires
                 </div>
                 <div class="card-body">
                     <!-- Case Comment are disabled -->

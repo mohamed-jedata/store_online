@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DashboardController;
@@ -45,6 +46,9 @@ Route::get('/category/{id}',[FCategorieController::class,'show']);
 
 Route::get('/product/{id}',[FProductController::class,'show'])->name("product-page");
 
+Route::get('/cart',[CartController::class,'index'])->name("cart.index");
+Route::post('/cart',[CartController::class,'create'])->name("cart.create");
+
 
 Route::get('/create_product', function () {
     return view('create_product');
@@ -53,9 +57,7 @@ Route::get('/edit_product', function () {
     return view('edit_product');
 });
 
-Route::get('/cart', function () {
-    return view('cart');
-});
+
 
 Route::get('/profile', function () {
     return view('profile');
