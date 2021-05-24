@@ -24,8 +24,8 @@ class DashboardController extends Controller
             "id",
             DB::raw("CONCAT(first_name,' ',last_name) as full_name")
         );
-        $lastest_products =  Product::all();
-        $lastest_comments =  Comment::all();
+        $lastest_products =  Product::orderByDesc('created_at')->limit(6)->get();
+        $lastest_comments =  Comment::orderByDesc('created_at')->limit(6)->get();
 
         
 

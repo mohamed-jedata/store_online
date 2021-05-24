@@ -5,11 +5,12 @@
 
 @section('content')
 
+
 <div class="category">
 
 
     <div class="card">
-        <div class="card-header">
+        <!-- <div class="card-header">
             {{$category->name}}
             @if(count($products) > 0)
                 <span class="float-right">
@@ -17,14 +18,28 @@
                 </span>
             @endif
             
+        </div> -->
+
+
+        <div class="products" style="margin-top: -1px;">
+            <h5 class="latest-product">{{$category->name}}</h5>	
+             <ul class="w_nav" style="padding-top: 0px;">
+					<li>Sort : </li>
+			     	<li><a class="active" href="#">popular</a></li> |
+			     	<li><a href="#">new </a></li> |
+			     	<li><a href="#">discount</a></li> |
+			     	<li><a href="#">price: Low High </a></li> 
+			</ul>
         </div>
+
+
         <div class="card-body">
 
             <div class="row">
                 
 
                 @if(count($products) == 0)
-                    <div class="empty" style="margin: auto;">
+                    <div class="empty" style="margin: auto;text-align:center">
                         <p>Il n'y a pas aucun produits dans ce catalogue</p>
                     </div>
                 @else

@@ -29,11 +29,11 @@
                                 </div>
                                 @endforeach
                                 <div  class="carousel-control-prev text-dark" href="#carsouselControll" role="button" data-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="carousel-control-prev-icon" aria-hidden="true" style="cursor: pointer;"></span>
                                     <span class="sr-only">Previous</span>
                                 </div>
                                 <div  class="carousel-control-next" href="#carsouselControll" role="button" data-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="carousel-control-next-icon" aria-hidden="true" style="cursor: pointer;"></span>
                                     <span class="sr-only">Next</span></div>
                                 </div>
                         </div>
@@ -43,7 +43,7 @@
                 </div>
             
                 <div class="col-md-8">
-                    <div class="details ml-md-n3">
+                    <!-- <div class="details ml-md-n3">
                             <ul>
                                 <li class="title">  {{$product->name }}  </li>
                                 <li class="tags">
@@ -79,7 +79,35 @@
                                     </form>
                                 </li>
                             </ul>
-                    </div>
+                    </div> -->
+
+                    <div class="single_grid">
+				  <div class="desc1 span_3_of_2">
+				  
+					
+					<h4>{{$product->name }}</h4>
+				
+                    <div class="cart-b">
+					<div class="left-n ">${{$product->price}}</div>
+				    <!-- <a class="now-get get-cart-in" href="#">AJOUTER AU PANIER</a>  -->
+                    <form action="{{route('cart.create')}}" method="post">
+                        @csrf
+                        <input class="d-none" name="product_id" value="{{$product->id }}"> 
+                        <button type="submit" class="btn btn-primary now-get get-cart-in">
+                            <i class="fas fa-cart-plus"></i> Ajouter au cart
+                        </button>
+                    </form>
+				    <div class="clearfix"></div>
+				 </div>
+				 <h6>{{$product->stock }} elements en stock</h6>
+			   	<p>
+                   {{$product->description }}  
+            
+                </p>
+			   	
+				</div>
+          	 
+
                 </div>
             </div>
 
@@ -122,7 +150,7 @@
                         </div>
                         <div class="row mt-2 mb-4">
                             <div class="col-sm-4">
-                            <button type="submit" class="btn btn-primary">Comment</button>
+                            <button type="submit" class="btn btn-primary" style="margin-top: 10px;margin-bottom: 10px;">Comment</button>
                             </div>
                         </div>
                     </form>
@@ -135,7 +163,7 @@
                                 ? 'img/profile.png'
                                 : 'storage/uploads/avatars/'.$comment->user->avatar ;
                             @endphp
-                            <img src="{{asset($avatar)}}" class="mr-3" srcset="">
+                            <img src="{{asset($avatar)}}" style="margin-right: 10px;" srcset="">
                             <div class="media-body pt-1" >
                                 <h6 class="username">
                                 {{$comment->user->first_name.' '.$comment->user->last_name}}

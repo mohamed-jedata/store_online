@@ -15,17 +15,17 @@
                 <div class="card-body">
 
                     <ul>
-                        <li><span>Nom</span>: Jedata</li>
-                        <li><span>Prenom</span>: +210 000 125</li>
-                        <li><span>Email Address</span>: mohamedjedata@gmail.com</li>
-                        <li><span>Addresse</span>: Morrocco Marrakech</li>
+                        <li><span>Nom</span>: {{ $user->last_name }}</li>
+                        <li><span>Prenom</span>: {{ $user->first_name }}</li>
+                        <li><span>Email Address</span>: {{ $user->email }}</li>
+                        <li><span>Addresse</span>: {{ $user->address }}</li>
                     </ul>
 
                 </div>
             </div>
         </div>
 
-        <div class="prod">
+        <div class="prod" id="my_products">
             <div class="card">
                 <div class="card-header">
                     Mes Produits
@@ -40,8 +40,8 @@
 
                     <div class="row">
                 
-
-                        @for($k=0 ; $k < 7 ;$k++)
+                        @if(count($products))
+                            @foreach($products as $pro)
                             <div class="col-md-3">
                                 <div class="card product">
                                     <img src="{{asset('img/mac.jpeg')}}" class="card-img-top image" alt="">
@@ -70,8 +70,12 @@
                                     </div>
                                 </div>
                             </div>
-                        @endfor
-
+                            @endforeach
+                        @else
+                            <div class="empty text-center">
+                                Vous n'avez pas aucun produits
+                            </div>
+                        @endif
                     </div>
 
 
@@ -109,12 +113,18 @@
                     <!-- <div class="text-center">
                         Vous n'avez pas aucun commentaires
                     </div> -->
-
-                    <ul>
-                        <li>Thank you very much I like your products <span class="date">20-10-2000</span></li>
-                        <li>Nice Produts <span class="date">30-10-1999</span></li>
-                        <li>I love delivery <span class="date">18-08-2012</span></li>
-                    </ul>
+                    @if(count($comments))
+                        <ul>
+                        @foreach($comments as $comm)
+                            <li>Thank you very much I like your products <span class="date">20-10-2000</span></li>
+                        @endforeach
+                        </ul>
+                    @else
+                        <div class="empty text-center">
+                            Vous n'avez pas aucun Commentaires
+                        </div>
+                    @endif
+                   
 
                 </div>
             </div>

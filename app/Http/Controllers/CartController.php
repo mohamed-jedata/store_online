@@ -18,19 +18,27 @@ class CartController extends Controller
         
         $products_ids = session("products");
         $products = [];
+        $total =0;
 
         if($products_ids==null){
             $products= [];
+            $products_ids = [];
         }
         if(count($products_ids) > 0)
         {
             foreach($products_ids as $pro_id){
                 $products[]  = Product::find($pro_id);
+                $total += Product::find($pro_id)->price;
             }
         }
-            
+        
+        session(["nb_items" => count($products)]);
+        
 
-        return view('cart')->with('products',$products);
+        return view('cart')->with([
+            'products'=>$products,
+            'total' =>$total
+            ]);
     }
 
     public function create(Request $request){
@@ -39,6 +47,17 @@ class CartController extends Controller
          
          return redirect()->route('cart.index');
      }
+
+
+
+     public function delete($id){
+       
+        $this->deleteFromProductsSession($id);
+        
+        return redirect()->route('cart.index');
+     }
+
+
 
      
      private function addToProductsSession($product_id){
