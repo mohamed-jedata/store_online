@@ -7,6 +7,14 @@
 
 <div class="profile">
 
+
+        @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+        @endif
+
+
         <div class="inform">
             <div class="card">
                 <div class="card-header">
@@ -28,7 +36,7 @@
         <div class="prod" id="my_products">
             <div class="card">
                 <div class="card-header">
-                    Mes Produits
+                    Mes Produits<span class="float-right"><a href="{{route('create_product')}}">Ajouter un produit</a></span>
                 </div>
                 <div class="card-body">
 
@@ -46,13 +54,15 @@
                                 <div class="card product">
                                     <img src="{{asset('img/mac.jpeg')}}" class="card-img-top image" alt="">
 
-                                    <a class="btn btn-success edit" href="#">Modifier</a>
-                                    <span class="wait-approv">En Attende d'approuval</span>
+                                    <a class="btn btn-success edit" href="{{route('edit_product',$pro->id)}}">Modifier</a>
+                                    @if($pro->active == 0)
+                                       <span class="wait-approv">En Attende d'approuval</span>
+                                    @endif
                                     <div class="card-body">
                                         <h4 class="card-title title">
-                                            Mac Laptop V470 
+                                        <a href="{{route('product-page',$pro->id)}}">{{$pro->name}} </a>
                                         </h4>
-                                        <h5 class="price"> 870 000 $</h5>
+                                        <h5 class="price"> {{$pro->price}} $</h5>
                                         
                                         <div class="rate">
                                             @php $rate = 3 @endphp
@@ -73,7 +83,8 @@
                             @endforeach
                         @else
                             <div class="empty text-center">
-                                Vous n'avez pas aucun produits
+                                Vous n'avez pas aucun produits , 
+                                <a href="{{route('create_product')}}">Ajouter un produit</a>
                             </div>
                         @endif
                     </div>

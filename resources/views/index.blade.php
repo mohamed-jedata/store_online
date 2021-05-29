@@ -35,7 +35,7 @@
                                 <div class="banner-matter">
                                 <div class="col-md-5 banner-bag">
                                     <a href="{{ route('product-page',$pro->id) }}">
-                                    <img class="img-responsive " src="{{asset('img/bag.jpg')}}" alt=" " /></a>
+                                    <img class="img-responsive " src="{{asset('storage/uploads/products/'.$pro->main_image)}}" alt=" " /></a>
                                     </div>
                                     <div class="col-md-7 banner-off">							
                                         <a href="{{ route('product-page',$pro->id) }}"><h2 style="margin-bottom: 10px;">{{ $pro->name }}</h2></a>
@@ -88,18 +88,28 @@
 
                     <div class="products">
                         <h5 class="latest-product">LATEST PRODUCTS </h5>	
-                        <a class="view-all" href="product.html">VIEW ALL <i style="margin-left: 6px;" class="fas fa-chevron-right"></i><span> </span></a> 		     
+                        <!-- <a class="view-all" href="product.html">VIEW ALL <i style="margin-left: 6px;" class="fas fa-chevron-right"></i><span> </span></a> 		      -->
                     </div>
                     <div class="product-left">
-                        <div class="col-md-4 chain-grid">
-                            <a href="single.html"><img class="img-responsive chain" src="{{asset('img/ch.jpg')}}" alt=" " /></a>
+                    @if(count($products_3) > 0)	 
+                        @php $i = 0 @endphp
+                        @foreach($products_3 as $pro)
+                            @php $i++ @endphp
+                            @if($i % 3 == 0)
+                            <div class="col-md-4 chain-grid grid-top-chain">
+                            @else 
+                            <div class="col-md-4 chain-grid ">
+                            @endif
+                          
+                            <a href="single.html"><img class="img-responsive chain" src="{{asset('storage/uploads/products/'.$pro->main_image)}}" alt=" " /></a>
                             <span class="star"> </span>
                             <div class="grid-chain-bottom">
-                                <h6><a href="single.html">Lorem ipsum dolor</a></h6>
+                                <h6><a href="single.html">{{$pro->name}}</a></h6>
                                 <div class="star-price">
                                     <div class="dolor-grid"> 
-                                        <span class="actual">300$</span>
-                                        <span class="rating">
+                                        <span class="actual">{{$pro->price}}$</span>
+                                        <!-- <span class="rating">
+                                        asset('img/ch.jpg')
                                                 <input type="radio" class="rating-input" id="rating-input-1-5" name="rating-input-1">
                                                 <label for="rating-input-1-5" class="rating-star1"> </label>
                                                 <input type="radio" class="rating-input" id="rating-input-1-4" name="rating-input-1">
@@ -110,14 +120,24 @@
                                                 <label for="rating-input-1-2" class="rating-star"> </label>
                                                 <input type="radio" class="rating-input" id="rating-input-1-1" name="rating-input-1">
                                                 <label for="rating-input-1-1" class="rating-star"> </label>
-                                        </span>
+                                        </span> -->
                                     </div>
-                                    <a class="now-get get-cart" href="#">ADD TO CART</a> 
+                                    <form action="{{route('cart.create')}}" method="post">
+                                        @csrf
+                                        <input class="d-none" name="product_id" value="{{$pro->id }}"> 
+                                        <button type="submit" class="btn btn-primary now-get-index add-to-cart">
+                                             Ajouter au cart
+                                        </button>
+                                    </form>
+                                    <!-- <a class="now-get get-cart" href="#">ADD TO CART</a>  -->
                                     <div class="clearfix"> </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-4 chain-grid">
+                         </div>
+                          @endforeach
+                    @endif
+                       
+                        <!-- <div class="col-md-4 chain-grid">
                             <a href="single.html"><img class="img-responsive chain" src="{{asset('img/ba.jpg')}}" alt=" " /></a>
                             <span class="star"> </span>
                             <div class="grid-chain-bottom">
@@ -143,8 +163,8 @@
                                     <div class="clearfix"> </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-4 chain-grid grid-top-chain">
+                        </div> -->
+                        <!-- <div class="col-md-4 chain-grid grid-top-chain">
                             <a href="single.html"><img class="img-responsive chain" src="{{asset('img/bo.jpg')}}" alt=" " /></a>
                             <span class="star"> </span>
                             <div class="grid-chain-bottom">
@@ -170,25 +190,35 @@
                                     <div class="clearfix"> </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="clearfix"> </div>
                     </div>
 
 
                     <div class="products">
                         <h5 class="latest-product">POPULAR PRODUCTS </h5>	
-                        <a class="view-all" href="product.html">VIEW ALL <i style="margin-left: 6px;" class="fas fa-chevron-right"></i><span> </span></a> 		     
+                        <!-- <a class="view-all" href="product.html">VIEW ALL <i style="margin-left: 6px;" class="fas fa-chevron-right"></i><span> </span></a> 		      -->
                     </div>
                     <div class="product-left">
-                        <div class="col-md-4 chain-grid">
-                            <a href="single.html"><img class="img-responsive chain" src="{{asset('img/ch.jpg')}}" alt=" " /></a>
+                    @if(count($products_pop_3) > 0)	 
+                        @php $i = 0 @endphp
+                        @foreach($products_pop_3 as $pro)
+                            @php $i++ @endphp
+                            @if($i % 3 == 0)
+                            <div class="col-md-4 chain-grid grid-top-chain">
+                            @else 
+                            <div class="col-md-4 chain-grid ">
+                            @endif
+                          
+                            <a href="single.html"><img class="img-responsive chain" src="{{asset('storage/uploads/products/'.$pro->main_image)}}" alt=" " /></a>
                             <span class="star"> </span>
                             <div class="grid-chain-bottom">
-                                <h6><a href="single.html">Lorem ipsum dolor</a></h6>
+                                <h6><a href="single.html">{{$pro->name}}</a></h6>
                                 <div class="star-price">
                                     <div class="dolor-grid"> 
-                                        <span class="actual">300$</span>
-                                        <span class="rating">
+                                        <span class="actual">{{$pro->price}}$</span>
+                                        <!-- <span class="rating">
+                                        asset('img/ch.jpg')
                                                 <input type="radio" class="rating-input" id="rating-input-1-5" name="rating-input-1">
                                                 <label for="rating-input-1-5" class="rating-star1"> </label>
                                                 <input type="radio" class="rating-input" id="rating-input-1-4" name="rating-input-1">
@@ -199,67 +229,22 @@
                                                 <label for="rating-input-1-2" class="rating-star"> </label>
                                                 <input type="radio" class="rating-input" id="rating-input-1-1" name="rating-input-1">
                                                 <label for="rating-input-1-1" class="rating-star"> </label>
-                                        </span>
+                                        </span> -->
                                     </div>
-                                    <a class="now-get get-cart" href="#">ADD TO CART</a> 
+                                    <form action="{{route('cart.create')}}" method="post">
+                                        @csrf
+                                        <input class="d-none" name="product_id" value="{{$pro->id }}"> 
+                                        <button type="submit" class="btn btn-primary now-get-index add-to-cart">
+                                             Ajouter au cart
+                                        </button>
+                                    </form>
                                     <div class="clearfix"> </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-4 chain-grid">
-                            <a href="single.html"><img class="img-responsive chain" src="{{asset('img/ba.jpg')}}" alt=" " /></a>
-                            <span class="star"> </span>
-                            <div class="grid-chain-bottom">
-                                <h6><a href="single.html">Lorem ipsum ddolor</a></h6>
-                                <div class="star-price">
-                                    <div class="dolor-grid"> 
-                                        <span class="actual">300$</span>
-                                        <span class="reducedfrom">400$</span>
-                                        <span class="rating">
-                                                <input type="radio" class="rating-input" id="rating-input-1-5" name="rating-input-1">
-                                                <label for="rating-input-1-5" class="rating-star1"> </label>
-                                                <input type="radio" class="rating-input" id="rating-input-1-4" name="rating-input-1">
-                                                <label for="rating-input-1-4" class="rating-star1"> </label>
-                                                <input type="radio" class="rating-input" id="rating-input-1-3" name="rating-input-1">
-                                                <label for="rating-input-1-3" class="rating-star"> </label>
-                                                <input type="radio" class="rating-input" id="rating-input-1-2" name="rating-input-1">
-                                                <label for="rating-input-1-2" class="rating-star"> </label>
-                                                <input type="radio" class="rating-input" id="rating-input-1-1" name="rating-input-1">
-                                                <label for="rating-input-1-1" class="rating-star"> </label>
-                                        </span>
-                                    </div>
-                                    <a class="now-get get-cart" href="#">ADD TO CART</a> 
-                                    <div class="clearfix"> </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 chain-grid grid-top-chain">
-                            <a href="single.html"><img class="img-responsive chain" src="{{asset('img/bo.jpg')}}" alt=" " /></a>
-                            <span class="star"> </span>
-                            <div class="grid-chain-bottom">
-                                <h6><a href="single.html">Lorem ipsum dolor</a></h6>
-                                <div class="star-price">
-                                    <div class="dolor-grid"> 
-                                        <span class="actual">300$</span>
-                                        <span class="reducedfrom">400$</span>
-                                        <span class="rating">
-                                                <input type="radio" class="rating-input" id="rating-input-1-5" name="rating-input-1">
-                                                <label for="rating-input-1-5" class="rating-star1"> </label>
-                                                <input type="radio" class="rating-input" id="rating-input-1-4" name="rating-input-1">
-                                                <label for="rating-input-1-4" class="rating-star1"> </label>
-                                                <input type="radio" class="rating-input" id="rating-input-1-3" name="rating-input-1">
-                                                <label for="rating-input-1-3" class="rating-star"> </label>
-                                                <input type="radio" class="rating-input" id="rating-input-1-2" name="rating-input-1">
-                                                <label for="rating-input-1-2" class="rating-star"> </label>
-                                                <input type="radio" class="rating-input" id="rating-input-1-1" name="rating-input-1">
-                                                <label for="rating-input-1-1" class="rating-star"> </label>
-                                        </span>
-                                    </div>
-                                    <a class="now-get get-cart" href="#">ADD TO CART</a> 
-                                    <div class="clearfix"> </div>
-                                </div>
-                            </div>
-                        </div>
+                         </div>
+                          @endforeach
+                    @endif
+                       
                         <div class="clearfix"> </div>
                     </div>
 
@@ -354,9 +339,7 @@
 
 
                     <div class="clearfix"> </div>
-	   	    </div>  
-
-               
+	   	    </div> 
                 @if(count($categories) > 0)
 			   <div class="sub-cate">
 				<div class=" top-nav rsidebar span_1_of_left">
@@ -370,23 +353,23 @@
                 @endif
 				<!--initiate accordion-->
 		<script type="text/javascript">
-			$(function() {
-			    var menu_ul = $('.menu > li > ul'),
-			           menu_a  = $('.menu > li > a');
-			    menu_ul.hide();
-			    menu_a.click(function(e) {
-			        e.preventDefault();
-			        if(!$(this).hasClass('active')) {
-			            menu_a.removeClass('active');
-			            menu_ul.filter(':visible').slideUp('normal');
-			            $(this).addClass('active').next().stop(true,true).slideDown('normal');
-			        } else {
-			            $(this).removeClass('active');
-			            $(this).next().stop(true,true).slideUp('normal');
-			        }
-			    });
+			// $(function() {
+			//     var menu_ul = $('.menu > li > ul'),
+			//            menu_a  = $('.menu > li > a');
+			//     menu_ul.hide();
+			//     menu_a.click(function(e) {
+			//         e.preventDefault();
+			//         if(!$(this).hasClass('active')) {
+			//             menu_a.removeClass('active');
+			//             menu_ul.filter(':visible').slideUp('normal');
+			//             $(this).addClass('active').next().stop(true,true).slideDown('normal');
+			//         } else {
+			//             $(this).removeClass('active');
+			//             $(this).next().stop(true,true).slideUp('normal');
+			//         }
+			//     });
 			
-			});
+			// });
 		</script>
 					<!-- <div class=" chain-grid menu-chain">
 	   		     		<a href="single.html"><img class="img-responsive chain" src="{{asset('img/wat.jpg')}}" alt=" " /></a>	   		     		

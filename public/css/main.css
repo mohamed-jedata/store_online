@@ -24,6 +24,14 @@ input[type=file]{
     font-size: 18px;
     color:#16283b;
 }
+.empty a{
+    text-decoration: none;
+    opacity: 0.8;
+}
+.empty a :hover{
+    opacity: 0.4;
+}
+
 
 #quantite{
     padding: 0px;

@@ -135,26 +135,30 @@
                     Commentaires
                 </div>
                 <div class="card-body">
-                    <!-- Case Comment are disabled -->
-                    <!-- <div class="text-center mb-2"> -->
-                          <!-- Comments are not Allowed for this Product -->
-                          <!-- Pour Faire une Comment , Vous devez <a href="#"> Authentifier </a> -->
-
-                    <!--</div>-->
-                    <form action="" method="POST">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                 <textarea type="text" name="comment" rows="3" class="form-control" placeholder="Saisez Votre commentaire ici"></textarea>
+                @if($product->allow_comments)
+                    @auth
+                        <form action="{{route('add-comment',$product->id)}}" method="POST">
+                        @method("put")
+                        @csrf
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <textarea type="text" name="comment" rows="3" class="form-control" placeholder="Saisez Votre commentaire ici"></textarea>
+                                </div>
                             </div>
-  
-                        </div>
-                        <div class="row mt-2 mb-4">
-                            <div class="col-sm-4">
-                            <button type="submit" class="btn btn-primary" style="margin-top: 10px;margin-bottom: 10px;">Comment</button>
+                            <div class="row mt-2 mb-4">
+                                <div class="col-sm-4">
+                                <button type="submit" class="btn btn-primary" style="margin-top: 10px;margin-bottom: 10px;">Comment</button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    @else
+                        <div class="text-center mb-2 ">
+                            Pour Faire une Comment , Vous devez 
+                            <a href="{{ route('login') }}"> S'incrire </a> 
+                            ou <a href="{{ route('register') }}"> Crier un Compte </a>
 
+                        </div>
+                    @endauth
                     @if(count($comments) > 0)
                         @foreach($comments as $comment)
                         <div class="media comment">
@@ -175,10 +179,21 @@
                         </div>
                         @endforeach
                     @else
-                        <div class="empty" style="margin: auto;">
+                        <div class="empty text-center" style="margin: auto;">
                             <p>Il n'y a pas aucun commentaires dans ce produit</p>
                         </div>
                     @endif
+                @else
+                 <!-- Case Comment are disabled -->
+                    <div class="text-center mb-2">
+                          Comments are not Allowed for this Product
+                    </div>
+                @endif
+                
+                   
+                    
+
+                   
 
                     
             </div>

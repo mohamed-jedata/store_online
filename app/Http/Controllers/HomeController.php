@@ -26,11 +26,13 @@ class HomeController extends Controller
     public function index()
     {
         $categories = Categorie::all();
-        $products_3 = Product::orderByDesc('created_at')->limit(3)->get();
+        $products_3 = Product::orderByDesc('created_at')->where('active',1)->limit(3)->get();
+        $products_pop_3 = Product::orderByDesc('views')->where('active',1)->limit(3)->get();
 
         return view('index',[
             'categories' => $categories,
-            'products_3' => $products_3
+            'products_3' => $products_3,
+            'products_pop_3' => $products_pop_3
             ]);
     }
 }

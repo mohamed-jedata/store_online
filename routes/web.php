@@ -7,10 +7,12 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FCategorieController;
 use App\Http\Controllers\FProductController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginAdminController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,12 +27,15 @@ use App\Http\Controllers\UserController;
 
 //******************    Start Back Office       **************//
 
-Route::get('/admin/dashboard',[DashboardController::class,'index'])->name("admin.dashboard");
+Route::get('/admin/login',[LoginAdminController::class,'index'])->name("admin.login");
+Route::post('/admin/login',[LoginAdminController::class,'authenticate'])->name("admin.authenticate");
 
-Route::resource('admin/users',UserController::class)->except(['show']);
-Route::resource('admin/categories',CategorieController::class)->except(['show']);
-Route::resource('admin/products',ProductController::class);
-Route::resource('admin/comments',CommentController::class)->except(['create','store','show']);
+Route::get('/admin/dashboard',[DashboardController::class,'index'])
+->name("admin.dashboard")->middleware('auth.admin');
+Route::resource('admin/users',UserController::class)->except(['show'])->middleware('auth.admin');
+Route::resource('admin/categories',CategorieController::class)->except(['show'])->middleware('auth.admin');
+Route::resource('admin/products',ProductController::class)->middleware('auth.admin');
+Route::resource('admin/comments',CommentController::class)->except(['create','store','show'])->middleware('auth.admin');
 
 
 //******************   End Back Office          **************//
@@ -51,18 +56,25 @@ Route::get('/category/{id}',[FCategorieController::class,'show'])->name("categor
 
 
 Route::get('/product/{id}',[FProductController::class,'show'])->name("product-page");
+Route::put('/product/{id}',[FProductController::class,'add_comment'])
+->name("add-comment")->middleware('auth');
 
 Route::get('/cart',[CartController::class,'index'])->name("cart.index");
 Route::post('/cart',[CartController::class,'create'])->name("cart.create");
 Route::delete('/cart/{id}/delete',[CartController::class,'delete'])->name("cart.delete");
 
 
-Route::get('/create_product', function () {
-    return view('create_product');
-});
-Route::get('/edit_product', function () {
-    return view('edit_product');
-});
+Route::get('/create_product',[FProductController::class,'create'])
+->name("create_product")->middleware('auth');
+Route::post('/create_product',[FProductController::class,'insert'])
+->name("insert_product")->middleware('auth');
+
+Route::get('/edit_product/{id}',[FProductController::class,'edit'])
+->name("edit_product")->middleware('auth');
+
+
+Route::put('/edit_product/{id}',[FProductController::class,'update'])
+->name("update_product")->middleware('auth');
 
 
 

@@ -34,13 +34,18 @@
                             </li> -->
                             <!-- <div class="account"><a href="login.html"><span> </span>YOUR ACCOUNT</a></div> -->
                             <div class="dropdown account">
-                                  <img  class="dropbtn" onclick="myFunction()" src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle"
+                                  @php 
+                                  $avatar = empty(trim(Auth::user()->avatar))
+                                      ? 'img/profile.png'
+                                      : 'storage/uploads/avatars/'.Auth::user()->avatar ;
+                                  @endphp
+                                  <img  class="dropbtn" onclick="myFunction()" src="{{$avatar}}" class="rounded-circle"
                                         style="height: 34px;" alt="avatar image">
                                         <span style="vertical-align: middle;padding-bottom:10px">
                                         <i  class="fas fa-sort-down"></i>
                                         </span>
                                       <div id="myDropdown" class="dropdown-content" style="text-align: left;">
-                                          <a href="{{ route('profile')}}">Profile </a>
+                                          <a href="{{ route('profile')}}">Profile</a>
                                           <a href="{{ route('profile')}}#my_products">Mes Produits</a>
                                           <a href="{{ route('logout')}}">Deconnection</a>
                                       </div>
