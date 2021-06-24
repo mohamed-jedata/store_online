@@ -52,7 +52,7 @@
                             @foreach($products as $pro)
                             <div class="col-md-3">
                                 <div class="card product">
-                                    <img src="{{asset('img/mac.jpeg')}}" class="card-img-top image" alt="">
+                                    <img src="{{asset('storage/uploads/products/'.$pro->main_image)}}" class="card-img-top image" alt="">
 
                                     <a class="btn btn-success edit" href="{{route('edit_product',$pro->id)}}">Modifier</a>
                                     @if($pro->active == 0)
@@ -62,9 +62,9 @@
                                         <h4 class="card-title title">
                                         <a href="{{route('product-page',$pro->id)}}">{{$pro->name}} </a>
                                         </h4>
-                                        <h5 class="price"> {{$pro->price}} $</h5>
+                                        <h5 class="price" style="font-size: 21px;color: gray;"> {{$pro->price}} $</h5>
                                         
-                                        <div class="rate">
+                                        <!-- <div class="rate">
                                             @php $rate = 3 @endphp
                                             @if($rate >=0 && $rate <= 5)
                                                 @for($i=1 ; $i <= $rate ; $i++)
@@ -75,7 +75,7 @@
                                                 @endfor
                                             @endif
                                             <span class="views">(88)</span>
-                                        </div>
+                                        </div> -->
                                         
                                     </div>
                                 </div>
@@ -127,7 +127,7 @@
                     @if(count($comments))
                         <ul>
                         @foreach($comments as $comm)
-                            <li>Thank you very much I like your products <span class="date">20-10-2000</span></li>
+                            <li>{{$comm->comment}} <span class="date">{{$comm->created_at}}</span></li>
                         @endforeach
                         </ul>
                     @else

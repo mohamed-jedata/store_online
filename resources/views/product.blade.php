@@ -93,7 +93,7 @@
                     <form action="{{route('cart.create')}}" method="post">
                         @csrf
                         <input class="d-none" name="product_id" value="{{$product->id }}"> 
-                        <button type="submit" class="btn btn-primary now-get get-cart-in">
+                        <button style="position: absolute;right: 22px;" type="submit" class="btn btn-primary now-get get-cart-in">
                             <i class="fas fa-cart-plus"></i> Ajouter au cart
                         </button>
                     </form>
@@ -152,11 +152,11 @@
                             </div>
                         </form>
                     @else
-                        <div class="text-center mb-2 ">
+                        <div class="text-center mb-2 myHr empty" >
                             Pour Faire une Comment , Vous devez 
                             <a href="{{ route('login') }}"> S'incrire </a> 
                             ou <a href="{{ route('register') }}"> Crier un Compte </a>
-
+                            <hr>
                         </div>
                     @endauth
                     @if(count($comments) > 0)

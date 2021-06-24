@@ -10,7 +10,7 @@ class FCategorieController extends Controller
     public function show($id){
 
        $category = Categorie::findOrFail($id);
-       $products = $category->products;
+       $products = $category->products->where('active',1);
 
        return view('category')->with([
             'category'=>$category,

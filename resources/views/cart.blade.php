@@ -54,8 +54,13 @@
 
         @endforeach
         <div class="text-right buy-price">
-            <span class="total-price" style="color: #000000;margin-top: 15px;">Prix Total : <b>{{$total}} $</b></span>
-            <span class="buy-now"><a href="#" class="btn btn-primary">Achter Maintenant</a></span>
+            <form method="POST" action="{{ route('pay') }}">
+                @csrf
+                <input  type="text" value="{{$total}}" name="total_price" class="d-none">
+            
+                <span class="total-price" style="color: #000000;margin-top: 15px;">Prix Total : <b>{{$total}} $</b></span>
+                <span class="buy-now"><button type="submit" class="btn btn-primary">Acheter Maintenant</button></span>
+            </form>
         </div>
 
 

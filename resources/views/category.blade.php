@@ -54,7 +54,7 @@
                                     </h4>
                                     <h5 class="price"> {{$product->price}}  $</h5>
                                     
-                                    <div class="rate">
+                                    <!-- <div class="rate">
                                         @php $rate = 3 @endphp
                                         @if($rate >=0 && $rate <= 5)
                                             @for($i=1 ; $i <= $rate ; $i++)
@@ -65,7 +65,7 @@
                                             @endfor
                                         @endif
                                         <span class="views">({{$product->views}})</span>
-                                    </div>
+                                    </div> -->
                                     
                                 </div>
                             </div>

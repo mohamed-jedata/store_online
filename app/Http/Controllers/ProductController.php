@@ -37,9 +37,9 @@ class ProductController extends Controller
 
            $products = "";
            if(request()->has("disapproved")){
-                $products = Product::where('active',0)->paginate(Util::PAGINATION);
+                $products = Product::where('active',0)->orderByDesc('created_at')->paginate(Util::PAGINATION);
            }else{
-                $products = Product::paginate(Util::PAGINATION);
+                $products = Product::orderByDesc('created_at')->paginate(Util::PAGINATION);
            }
   
             return view("admin.products.index",['products'=>$products]);

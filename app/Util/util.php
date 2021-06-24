@@ -7,6 +7,6 @@ Class Util{
 
 
     public const CURRENCY = "DH"; 
-    public const PAGINATION = 10;
+    public const PAGINATION = 5;
 
 }

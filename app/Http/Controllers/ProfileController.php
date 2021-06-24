@@ -10,7 +10,7 @@ class ProfileController extends Controller
     public  function index(){
 
         $user = Auth::user();
-        $products = $user->products;
+        $products = $user->products->sortBy("active");
         $comments = $user->comments;
 
         return view("profile",[

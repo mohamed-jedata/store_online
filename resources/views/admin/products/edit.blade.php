@@ -166,7 +166,7 @@
   <form method="POST" style="display: none;" action="{{route('products.destroy',$product->id)}}">
     @csrf
     @method('delete')
-    <button type="submit" class="btn btn-danger delete"></button>
+    <button type="submit" id="confirm" class="btn btn-danger delete"></button>
   </form>
 
 

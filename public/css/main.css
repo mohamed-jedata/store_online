@@ -12,6 +12,11 @@ body{
 input[type=file]{
     border : 1px solid #a9acaf;
 }
+.myHr hr{
+    border: 1px solid aqua;
+    margin-top: 10px !important;
+    margin-bottom: 10px;
+}
 .d-none{
     display: none;
 }
@@ -244,7 +249,7 @@ input[type=file]{
      margin-bottom: 10px;
  }
  .prod .wait-approv{
-    background-color: #ff00006b;
+    background-color: #ff0000c7;
     position: absolute;
     top: 0;
     left: 0;

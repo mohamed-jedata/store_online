@@ -31,7 +31,7 @@
 
 
 
-    <title>@yield('title','Store Online')</title>
+    <title>@yield('title','BIG SHOP')</title>
 </head>
 <body>
 
@@ -47,36 +47,25 @@
 
 
 
-   <div class="footer" >
+    <div class="footer">
 		<div class="footer-top">
 			<div class="container">
 				<div class="latter">
-					<h6>BIG SHOP</h6>
+					<h6>BIGSHOPS</h6>
+					<div class="sub-left-right">
+						<form>
+							<input type="text" value="Enter email here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter email here';}">
+							<input type="submit" value="SUBSCRIBE">
+						</form>
+					</div>
 					<div class="clearfix"> </div>
 				</div>
-				<div class="latter-right">
-					<!-- <p>FOLLOW US</p> -->
-                    <!-- <div class="text-center"> -->
-                        <p>
-                           Made by Mohamed Jedata &#160;
-                           <i style="color: red;" class="fas fa-heart"></i>
-                        </p>
-                        
-                    <!-- </div> -->
-					<ul class="face-in-to">
-						<li><a href="#"></a></li>
-						<li><a href="#"><span class="facebook-in"> </span></a></li>
-						<div class="clearfix"> </div>
-					</ul>
-					<div class="clearfix"> </div>
-				</div>
+				
 				<div class="clearfix"> </div>
 			</div>
 		</div>
-	
+		
 	</div>
-
-
 
     <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
     <!-- <script src="{{asset('js/jquery.wmuSlider.js')}}"></script>  -->
@@ -84,6 +73,13 @@
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
 
     <script src="{{asset('js/main.js')}}"></script>
+
+
+
+
+
+
+
 
 </body>
 </html>
